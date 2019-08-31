@@ -348,6 +348,14 @@ biconcat = bifold
 newtype Max a = Max {getMax :: Maybe a}
 newtype Min a = Min {getMin :: Maybe a}
 
+#ifdef ETA_VERSION
+instance Ord a => Semigroup (Min a) where
+  (<>) (Min a) (Min b) = Min (min a b)
+
+instance Ord a => Semigroup (Max a) where
+  (<>) (Max a) (Max b) = Max (max a b)
+#endif
+
 instance Ord a => Monoid (Max a) where
   mempty = Max Nothing
 

@@ -49,7 +49,7 @@ flag tagged
     You can disable the use of the `tagged` package using `-f-tagged`.
     .
     Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-
+    
 library
   hs-source-dirs: src
   include-dirs: include
