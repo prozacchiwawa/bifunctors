@@ -49,7 +49,12 @@ flag tagged
     You can disable the use of the `tagged` package using `-f-tagged`.
     .
     Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-    
+
+flag eta
+  default: True
+  manual: True
+  description: Build for eta
+        
 library
   hs-source-dirs: src
   include-dirs: include
@@ -76,7 +81,7 @@ library
     hs-source-dirs: old-src/ghc709
     exposed-modules: Data.Bifunctor
 
-  if impl(ghc<8.1)
+  if impl(ghc<8.1) && !flag(eta)
     hs-source-dirs: old-src/ghc801
     exposed-modules:
       Data.Bifoldable
